@@ -95,4 +95,4 @@ Response:
 ---
 
 ## 📜 License
-MIT License. Free to use & modify.  
+Nothing Here :")

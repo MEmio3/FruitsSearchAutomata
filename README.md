@@ -1,5 +1,5 @@
 # FruitsSearchAutomata
-🍎 #Fruit #Search #Bot 🚀
+🍎 Fruit Search Bot 🚀
 
 A web-based automation tool that opens your favorite browser, switches Chrome profiles if needed, and searches for a list of fruits (or any items you provide).
 
@@ -35,8 +35,6 @@ fruit-search-bot/
 ├── index.html      # Frontend (UI)
 ├── style.css       # Glassmorphic dark theme
 ├── script.js       # Frontend logic + API calls
-├── fruits.json     # Saved fruit list (auto-created)
-├── selected_profiles.json  # Saved Chrome profiles (auto-created)
 └── README.md       # Project documentation
 
 ⚙️ Installation

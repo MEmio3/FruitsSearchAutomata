@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍎 Fruit Search Bot - Glassmorphic UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <div class="gradient-sphere sphere-1"></div>
+        <div class="gradient-sphere sphere-2"></div>
+        <div class="gradient-sphere sphere-3"></div>
+    </div>
+
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <span class="gradient-text">🍎 FRUIT SEARCH BOT</span>
+                </h1>
+                <p class="subtitle">Advanced Multi-Browser & Multi-Profile Automation</p>
+            </div>
+            <div class="warning-banner">
+                ⚠️ SAFETY: Move mouse to TOP-LEFT corner for emergency stop
+            </div>
+        </header>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Left Panel - Fruit List -->
+            <div class="glass-panel left-panel">
+                <div class="panel-header">
+                    <h2>🍊 Fruit List</h2>
+                    <div class="fruit-count">
+                        <span id="fruitCount">0</span> items
+                    </div>
+                </div>
+                <textarea id="fruitList" class="fruit-textarea" placeholder="Enter fruits, one per line...">Apple
+Banana
+Orange
+Mango
+Strawberry
+Pineapple
+Watermelon
+Grapes
+Kiwi
+Peach</textarea>
+                <div class="file-operations">
+                    <button class="glass-btn btn-success" onclick="loadDefaultFruits()">
+                        <span class="btn-icon">📦</span> Load Defaults
+                    </button>
+                    <button class="glass-btn btn-warning" onclick="saveFruits()">
+                        <span class="btn-icon">💾</span> Save
+                    </button>
+                    <button class="glass-btn btn-info" onclick="loadFruits()">
+                        <span class="btn-icon">📂</span> Load
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Panel - Controls -->
+            <div class="glass-panel right-panel">
+                <div class="panel-header">
+                    <h2>⚙️ Settings</h2>
+                </div>
+                
+                <!-- Delay Control -->
+                <div class="control-group">
+                    <label class="control-label">⏱️ Delay (seconds)</label>
+                    <input type="number" id="delayInput" class="glass-input" value="3" min="0.5" step="0.5">
+                </div>
+
+                <!-- Browser Selection -->
+                <div class="control-group">
+                    <label class="control-label">🌐 Browser</label>
+                    <select id="browserSelect" class="glass-select" onchange="onBrowserChange()">
+                        <option value="chrome">Chrome</option>
+                        <option value="edge">Edge</option>
+                        <option value="firefox">Firefox</option>
+                        <option value="brave">Brave</option>
+                        <option value="safari">Safari</option>
+                    </select>
+                </div>
+
+                <!-- Chrome Profile Section -->
+                <div id="profileSection" class="profile-section">
+                    <div class="control-group">
+                        <label class="control-label">👤 Chrome Profiles</label>
+                        <div id="profileInfo" class="profile-info">
+                            Loading profiles...
+                        </div>
+                        <button class="glass-btn btn-primary" onclick="openProfileModal()">
+                            <span class="btn-icon">📋</span> Select Profiles
+                        </button>
+                        <div id="selectedProfilesDisplay" class="selected-profiles">
+                            No profiles selected
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="startBtn" class="glass-btn btn-large btn-success" onclick="startAutomation()">
+                        <span class="btn-icon">▶️</span> START SEARCH
+                    </button>
+                    <button id="stopBtn" class="glass-btn btn-large btn-danger" onclick="stopAutomation()" disabled>
+                        <span class="btn-icon">⏹️</span> STOP SEARCH
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Panel -->
+        <div class="glass-panel status-panel">
+            <div class="status-header">
+                <h3>📊 Status</h3>
+                <div class="status-indicator" id="statusIndicator"></div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+            <div class="status-info">
+                <div class="status-message" id="statusMessage">🚀 Ready to start...</div>
+                <div class="current-search" id="currentSearch"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Selection Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content glass-modal">
+            <div class="modal-header">
+                <h2>🎯 Select Chrome Profiles</h2>
+                <span class="modal-close" onclick="closeProfileModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-info" id="modalInfo">Select profiles to use for automation:</p>
+                <div id="profileList" class="profile-list">
+                    <!-- Profiles will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="glass-btn btn-secondary" onclick="selectAllProfiles()">
+                    <span class="btn-icon">✅</span> Select All
+                </button>
+                <button class="glass-btn btn-secondary" onclick="clearAllProfiles()">
+                    <span class="btn-icon">🗑️</span> Clear All
+                </button>
+                <button class="glass-btn btn-danger" onclick="closeProfileModal()">
+                    <span class="btn-icon">❌</span> Cancel
+                </button>
+                <button class="glass-btn btn-success" onclick="applyProfileSelection()">
+                    <span class="btn-icon">✅</span> Apply Selection
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

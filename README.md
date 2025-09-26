@@ -10,7 +10,6 @@ Automate fruit (or anything!) searches across browsers with real Chrome profile 
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/framework-Flask-green.svg" alt="Flask">
   <img src="https://img.shields.io/badge/automation-PyAutoGUI-orange.svg" alt="PyAutoGUI">
-  <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License">
 </p>  
 
 ---

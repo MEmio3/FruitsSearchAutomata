@@ -1,5 +1,5 @@
 # FruitsSearchAutomata
-🍎 Fruit Search Bot 🚀
+#🍎 Fruit Search Bot 🚀
 
 A web-based automation tool that opens your favorite browser, switches Chrome profiles if needed, and searches for a list of fruits (or any items you provide).
 

@@ -1,134 +1,98 @@
-# FruitsSearchAutomata
-🍎 Fruit Search Bot 🚀
+# 🍎 Fruit Search Bot  
+> **“Search smarter, not harder.”**  
+Automate fruit (or anything!) searches across browsers with real Chrome profile control — all from a sleek web UI.  
 
-A web-based automation tool that opens your favorite browser, switches Chrome profiles if needed, and searches for a list of fruits (or any items you provide).
+<p align="center">
+  <img src="screenshots/ui_home.png" alt="UI Screenshot" width="700">
+</p>  
 
-Built with:
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/framework-Flask-green.svg" alt="Flask">
+  <img src="https://img.shields.io/badge/automation-PyAutoGUI-orange.svg" alt="PyAutoGUI">
+  <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License">
+</p>  
 
-Flask (backend API + static file server)
+---
 
-PyAutoGUI (keyboard/mouse automation)
+## ✨ Why use this?
+- 🔍 Automates **browser searches** with one click.  
+- 👤 Detects and uses your **real Chrome profiles** (e.g. *Personal, Work, Gaming*).  
+- 🌐 Supports **Chrome, Edge, Firefox, Brave, Opera, Safari**.  
+- 📊 Live **progress tracking** & status updates.  
+- 💾 Save & reload your **fruit list** easily.  
+- 🛑 **Failsafe**: slam your mouse to the top-left corner to instantly stop.  
 
-HTML/CSS/JS (frontend, glassmorphic dark theme)
+---
 
-✨ Features
+## 🚀 Quick Start
 
-🔍 Automated Searches — Opens new tabs, types fruit names, presses Enter.
-
-🌐 Multi-browser Support — Chrome, Edge, Firefox, Brave, Opera, Safari.
-
-👤 Real Chrome Profile Detection — Detects and uses your actual Chrome profiles by name (Personal, Work, etc.).
-
-📋 Smart Profile Selection — Select specific profiles via the web UI (with Select All & Clear All options).
-
-💾 Fruit List Management — Load default fruits, save your own to fruits.json, reload anytime.
-
-📊 Progress & Status — Live status, current fruit, current profile, progress bar.
-
-🛑 Safety — Move your mouse to the TOP-LEFT corner anytime to immediately abort automation.
-
-💻 CLI Mode — Run automation without the web UI using --cli.
-
-📂 Project Structure
-fruit-search-bot/
-├── app.py          # Flask backend (API + automation logic)
-├── index.html      # Frontend (UI)
-├── style.css       # Glassmorphic dark theme
-├── script.js       # Frontend logic + API calls
-└── README.md       # Project documentation
-
-⚙️ Installation
-1. Clone the repository
+### 1️⃣ Clone & Install
+```bash
 git clone https://github.com/your-username/fruit-search-bot.git
 cd fruit-search-bot
-
-2. Install dependencies
-
-Python 3.9+ recommended.
-
 pip install Flask Flask-Cors pyautogui
+```
 
-
-On Linux/macOS you may also need:
-
-sudo apt install xdotool   # (Ubuntu/Debian for automation reliability)
-
-▶️ Running the Web App
+### 2️⃣ Run the App
+```bash
 python app.py
+```
+Now open 👉 [http://localhost:5000](http://localhost:5000)  
 
+---
 
-Then open in your browser:
-👉 http://localhost:5000
+## 🌐 Web UI Walkthrough
+<p align="center">
+  <img src="screenshots/profile_select.png" alt="Profile Selection" width="700">
+</p>  
 
-🌐 Using the Web UI
+1. ✏️ Add or load fruits  
+2. 🌍 Choose a browser  
+3. 👤 (For Chrome) Select one or more profiles  
+4. ⏱ Set delay between searches  
+5. ▶️ Hit **Start** and watch automation go!  
 
-Open http://localhost:5000
-.
+---
 
-Manage your fruit list (add/remove fruits, or load defaults).
+## 🖥️ CLI Mode (for pros)
+```bash
+python app.py --cli --file fruits.json --delay 2 --browser chrome --profiles "Work" "Personal"
+```
+- `--file` → JSON with fruits  
+- `--delay` → seconds between searches  
+- `--browser` → chrome, edge, firefox, brave, opera, safari  
+- `--profiles` → specific Chrome profiles  
 
-Select your browser from the dropdown.
+---
 
-If Chrome:
+## 📸 Demo in Action
+<p align="center">
+  <img src="screenshots/running_demo.gif" alt="Demo Run" width="700">
+</p>  
 
-Enter max profiles (1–10).
+---
 
-Click 📋 Select Profiles and pick from your actual Chrome profiles.
+## ⚠️ Safety
+- PyAutoGUI **failsafe enabled** → Move mouse to top-left corner to abort instantly.  
+- Works only in graphical environments (Windows/macOS/Linux desktop).  
 
-Click ✅ Use Selected Profiles.
+---
 
-Set the delay (seconds between searches).
-
-Click ▶ START SEARCH.
-
-Watch live progress.
-
-Click ⏹ STOP SEARCH anytime or move mouse to TOP-LEFT corner for emergency stop.
-
-🖥️ CLI Mode
-
-You can also run the bot without the UI:
-
-python app.py --cli --file fruits.json --delay 3 --browser chrome --profiles "Personal" "Work"
-
-
-Options:
-
---cli → run in CLI mode instead of starting Flask server
-
---file → JSON file containing ["Apple","Banana",...]
-
---delay → delay between searches (min 0.5s)
-
---browser → chrome, edge, firefox, brave, opera, safari
-
---profiles → Chrome profile names to use
-
-Example:
-
-python app.py --cli --file fruits.json --delay 2 --browser chrome --profiles "Work Account"
-
-⚠️ Safety Notes
-
-Failsafe: Move mouse to TOP-LEFT corner of screen to immediately abort automation.
-
-Only works on machines with a graphical environment (Windows, macOS, Linux with GUI).
-
-On headless servers, PyAutoGUI cannot type into browsers.
-
-✅ Health Check
-
-Backend exposes /api/health:
-
+## 🩺 Health Check API
+```bash
 curl http://localhost:5000/api/health
-
-
-Example response:
-
+```
+Response:
+```json
 {
   "status": "healthy",
   "platform": "Windows",
-  "chrome_dir": "C:\\Users\\Me\\AppData\\Local\\Google\\Chrome\\User Data",
-  "pyautogui_available": true,
-  "failsafe_enabled": true
+  "chrome_dir": "C:\\Users\\Me\\AppData\\Local\\Google\\Chrome\\User Data"
 }
+```
+
+---
+
+## 📜 License
+MIT License. Free to use & modify.  
